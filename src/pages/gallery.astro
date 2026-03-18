@@ -1,20 +1,29 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Lightbox from "../components/Lightbox";
+import farmGreenFields from "../assets/images/farm-green-fields.jpg";
+import barnSunset from "../assets/images/barn-sunset.jpg";
+import rollingHills from "../assets/images/rolling-hills.jpg";
+import horsesPasture from "../assets/images/horses-pasture.jpg";
+import morningMeadow from "../assets/images/morning-meadow.jpg";
+import countryRoad from "../assets/images/country-road.jpg";
+import gardenFlowers from "../assets/images/garden-flowers.jpg";
+import rusticFence from "../assets/images/rustic-fence.jpg";
 
 const images = [
-  { from: "from-earth", to: "to-clay", alt: "Farm landscape" },
-  { from: "from-sage", to: "to-forest", alt: "Green pastures" },
-  { from: "from-bark", to: "to-earth", alt: "Barn venue" },
-  { from: "from-moss", to: "to-sage", alt: "Garden path" },
-  { from: "from-clay", to: "to-sand", alt: "Golden hour fields" },
-  { from: "from-forest", to: "to-moss", alt: "Tree-lined drive" },
-  { from: "from-earth", to: "to-bark", alt: "Event space" },
-  { from: "from-sage", to: "to-clay", alt: "Sunset view" },
+  { src: farmGreenFields, alt: "Green farm fields" },
+  { src: barnSunset, alt: "Barn at sunset" },
+  { src: rollingHills, alt: "Rolling hills landscape" },
+  { src: horsesPasture, alt: "Horses in the pasture" },
+  { src: morningMeadow, alt: "Morning meadow" },
+  { src: countryRoad, alt: "Country road through trees" },
+  { src: gardenFlowers, alt: "Garden flowers" },
+  { src: rusticFence, alt: "Rustic fence and countryside" },
 ];
 
-const lightboxImages = images.map(({ from, to, alt }) => ({
-  gradient: `${from} ${to}`,
+const lightboxImages = images.map(({ src, alt }) => ({
+  src: src.src,
   alt,
 }));
 ---
@@ -31,13 +40,22 @@ const lightboxImages = images.map(({ from, to, alt }) => ({
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-6">
-          {images.map(({ from, to, alt }, index) => (
+          {images.map(({ src, alt }, index) => (
             <button
               type="button"
-              class={`aspect-[4/3] rounded-lg overflow-hidden bg-gradient-to-br ${from} ${to} shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer border-none p-0`}
+              class="aspect-[4/3] rounded-lg overflow-hidden shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer border-none p-0"
               data-lightbox-index={index}
               aria-label={`View ${alt}`}
-            />
+            >
+              <Image
+                src={src}
+                alt={alt}
+                class="w-full h-full object-cover"
+                widths={[320, 480, 640]}
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                loading={index < 3 ? "eager" : "lazy"}
+              />
+            </button>
           ))}
         </div>
       </div>

@@ -1,13 +1,33 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import heroImage from "../assets/images/hero-farm-landscape.jpg";
+import aboutImage from "../assets/images/about-farm.jpg";
+import galleryPreview1 from "../assets/images/farm-green-fields.jpg";
+import galleryPreview2 from "../assets/images/barn-sunset.jpg";
+import galleryPreview3 from "../assets/images/rolling-hills.jpg";
+import galleryPreview4 from "../assets/images/horses-pasture.jpg";
+
+const previewImages = [
+  { src: galleryPreview1, alt: "Green farm fields" },
+  { src: galleryPreview2, alt: "Barn at sunset" },
+  { src: galleryPreview3, alt: "Rolling hills" },
+  { src: galleryPreview4, alt: "Horses in the pasture" },
+];
 ---
 
 <BaseLayout title="El Rabón Farm" description="A beautiful farm venue for weddings, events, and celebrations surrounded by nature.">
   <main>
     <!-- Hero Section -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
-      <!-- Background placeholder (replace with <Image> when assets are added) -->
-      <div class="absolute inset-0 bg-gradient-to-b from-bark to-charcoal"></div>
+      <Image
+        src={heroImage}
+        alt="El Rabón Farm landscape"
+        class="absolute inset-0 w-full h-full object-cover"
+        widths={[640, 1024, 1440, 2400]}
+        sizes="100vw"
+        loading="eager"
+      />
       <div class="absolute inset-0 bg-black/30"></div>
 
       <div class="relative z-10 text-center px-6 md:px-12 lg:px-16">
@@ -37,8 +57,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <!-- About Preview -->
     <section class="px-6 py-16 md:px-12 md:py-32">
       <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
-        <!-- Image placeholder (replace with Astro <Image> when assets are added) -->
-        <div class="aspect-[4/3] rounded-lg overflow-hidden bg-gradient-to-br from-sage to-moss"></div>
+        <Image
+          src={aboutImage}
+          alt="The farm and its surroundings"
+          class="aspect-[4/3] rounded-lg overflow-hidden object-cover w-full"
+          widths={[640, 800, 1200]}
+          sizes="(min-width: 768px) 50vw, 100vw"
+        />
 
         <div>
           <h2 class="text-3xl md:text-4xl mb-6">Our Story</h2>
@@ -61,13 +86,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <h2 class="text-3xl md:text-4xl text-center mb-10 md:mb-16">A Glimpse of the Farm</h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-          {[
-            { from: "from-earth", to: "to-clay" },
-            { from: "from-sage", to: "to-forest" },
-            { from: "from-bark", to: "to-earth" },
-            { from: "from-moss", to: "to-sage" },
-          ].map(({ from, to }) => (
-            <div class={`aspect-[4/3] rounded-lg overflow-hidden bg-gradient-to-br ${from} ${to} transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer`} />
+          {previewImages.map(({ src, alt }) => (
+            <div class="aspect-[4/3] rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
+              <Image
+                src={src}
+                alt={alt}
+                class="w-full h-full object-cover"
+                widths={[320, 480, 640]}
+                sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+              />
+            </div>
           ))}
         </div>
 

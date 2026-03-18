@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 
 interface LightboxProps {
-  images: { gradient: string; alt: string }[];
+  images: { src: string; alt: string }[];
 }
 
 export default function Lightbox({ images }: LightboxProps) {
@@ -98,10 +98,10 @@ export default function Lightbox({ images }: LightboxProps) {
       </button>
 
       {/* Image */}
-      <div
-        className={`max-w-[95vw] max-h-[85vh] lg:max-w-[85vw] aspect-[4/3] rounded-lg bg-gradient-to-br ${image.gradient}`}
-        role="img"
-        aria-label={image.alt}
+      <img
+        src={image.src}
+        alt={image.alt}
+        className="max-w-[95vw] max-h-[85vh] lg:max-w-[85vw] rounded-lg object-contain"
       />
 
       {/* Next arrow */}
