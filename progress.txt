@@ -96,3 +96,14 @@
 - Form posts to /api/contact endpoint, shows success message on 200
 - Shows error message on non-200 or network failure
 - Loading state with "Sending..." text while submitting
+
+### 14. Contact Page — API Endpoint ✅ (2026-03-18)
+- src/pages/api/contact.ts with export const prerender = false
+- POST handler accepts JSON with name, email, eventType, message
+- Returns 400 with error messages if required fields missing
+- Returns 400 if email format is invalid
+- Returns 200 with { success: true } on valid submission
+- Logs submission data to console (Vercel function logs)
+- ContactForm.tsx shows success message on 200 response
+- ContactForm.tsx shows error message on non-200 response
+- Deployed as Vercel serverless function via _render.func
