@@ -1,0 +1,218 @@
+[
+  {
+    "category": "Project Setup",
+    "description": "Initialize Astro 5 project with React integration, Tailwind CSS v4, and Vercel adapter",
+    "steps_to_verify": [
+      "package.json exists with astro, @astrojs/react, @astrojs/vercel, tailwindcss, @tailwindcss/vite dependencies",
+      "astro.config.mjs has output: 'static', vercel() adapter, react() integration, and @tailwindcss/vite plugin",
+      "npm run dev starts without errors on localhost"
+    ],
+    "passes": false
+  },
+  {
+    "category": "Design System",
+    "description": "Define Tailwind v4 theme with earth-tone color palette, serif/sans-serif typography pairing (DM Serif Display + Inter), and generous spacing tokens",
+    "steps_to_verify": [
+      "src/styles/global.css contains @theme block with colors: cream, warm-white, sand, clay, earth, bark, charcoal, forest, sage, moss",
+      "Google Fonts imported for DM Serif Display and Inter",
+      "Headings render in DM Serif Display, body text in Inter",
+      "Section spacing uses 8rem desktop / 5rem mobile tokens",
+      "Background is cream (#FAF8F5), text is charcoal (#2D2A26)"
+    ],
+    "passes": false
+  },
+  {
+    "category": "Layout Shell",
+    "description": "BaseLayout component wrapping all pages with Header, Footer, and SEO meta tags",
+    "steps_to_verify": [
+      "BaseLayout.astro accepts title, description, ogImage props and renders them in <head>",
+      "SEO.astro renders <title>, meta description, Open Graph, and Twitter card tags",
+      "All three pages (/, /gallery, /contact) use BaseLayout and render correctly"
+    ],
+    "passes": false
+  },
+  {
+    "category": "Header Navigation",
+    "description": "Sticky header with logo text and nav links (Home, Gallery, Contact), transparent over hero, backdrop-blur when scrolled",
+    "steps_to_verify": [
+      "Header displays 'El Rabón' logo on the left in serif font",
+      "Three nav links on the right: Home, Gallery, Contact",
+      "Header is transparent at top of page, gains background + backdrop-blur on scroll",
+      "Mobile (<768px): nav collapses to hamburger menu that toggles open/closed",
+      "Desktop (≥768px): nav links display inline horizontally",
+      "Active page link is visually distinguished"
+    ],
+    "passes": false
+  },
+  {
+    "category": "Footer",
+    "description": "Minimal footer with farm name, tagline, and copyright on dark background",
+    "steps_to_verify": [
+      "Footer has bg-charcoal with cream text",
+      "Displays farm name, short tagline, and copyright with current year",
+      "Renders consistently on all three pages",
+      "Mobile: px-6 py-12, Desktop: px-16 py-16"
+    ],
+    "passes": false
+  },
+  {
+    "category": "Home — Hero Section",
+    "description": "Full-viewport-height hero with background farm image, centered farm name in large serif, tagline, and scroll indicator",
+    "steps_to_verify": [
+      "Hero takes full viewport height (100vh)",
+      "Background image is full-width with object-cover",
+      "Farm name displayed in large serif font, centered",
+      "Tagline displayed below farm name",
+      "Animated scroll-down indicator (chevron) visible at bottom",
+      "Text is readable over the image (overlay or text shadow)",
+      "Mobile: title text-4xl, px-6. Tablet: text-5xl, px-12. Desktop: text-6xl, px-16"
+    ],
+    "passes": false
+  },
+  {
+    "category": "Home — About Preview",
+    "description": "Two-column section with farm photo and short description text",
+    "steps_to_verify": [
+      "Desktop (≥768px): image on left, text on right in two-column grid",
+      "Mobile (<768px): stacks vertically, image above text, full width",
+      "Contains 2-3 sentences about the farm",
+      "Mobile: px-6 py-16, gap-8. Desktop: px-12 py-32, gap-16",
+      "Image uses Astro <Image> component for optimization"
+    ],
+    "passes": false
+  },
+  {
+    "category": "Home — Gallery Preview",
+    "description": "Grid of 3-4 farm images with hover effects and link to full gallery page",
+    "steps_to_verify": [
+      "Mobile (<640px): grid-cols-1. Tablet (640-1024px): grid-cols-2. Desktop (≥1024px): grid-cols-3 or grid-cols-4",
+      "Images have aspect-[4/3] ratio consistently",
+      "Images have subtle hover effect (scale + shadow)",
+      "'View Full Gallery' link navigates to /gallery",
+      "Mobile: px-6 gap-4. Tablet: px-12 gap-6. Desktop: px-16 gap-8"
+    ],
+    "passes": false
+  },
+  {
+    "category": "Home — CTA Section",
+    "description": "Call-to-action section with warm background inviting event inquiries, with button linking to contact page",
+    "steps_to_verify": [
+      "Section has warm-white or sand background color",
+      "Centered text about hosting events at the farm",
+      "Mobile: heading text-2xl, button w-full, px-6 py-16",
+      "Desktop: heading text-3xl, button w-auto px-8, px-16 py-24",
+      "Button styled with bg-forest text-cream, hover darkening effect",
+      "Button navigates to /contact"
+    ],
+    "passes": false
+  },
+  {
+    "category": "Gallery Page",
+    "description": "Dedicated gallery page with responsive photo grid displaying all farm images",
+    "steps_to_verify": [
+      "Page has title 'Gallery' with subtitle",
+      "Mobile (<640px): grid-cols-1 gap-4 px-4. Tablet (640-1024px): grid-cols-2 gap-6 px-8. Desktop (≥1024px): grid-cols-3 gap-6 px-16",
+      "Each image has rounded corners, subtle shadow, hover scale effect",
+      "Images have aspect-[4/3] and use Astro <Image> with lazy loading",
+      "Clicking an image opens the lightbox"
+    ],
+    "passes": false
+  },
+  {
+    "category": "Gallery — Lightbox",
+    "description": "React lightbox component for full-size image viewing with keyboard navigation",
+    "steps_to_verify": [
+      "Lightbox opens as modal overlay when gallery image is clicked",
+      "Displays current image at large size",
+      "Previous/next arrow buttons navigate between images",
+      "Left/right arrow keys navigate between images",
+      "Escape key closes the lightbox",
+      "Clicking outside the image closes the lightbox",
+      "Body scroll is locked while lightbox is open",
+      "Smooth fade-in/fade-out transitions",
+      "Mobile: max-w-[95vw] max-h-[85vh], nav arrows inside image area, touch swipe support",
+      "Desktop: max-w-[85vw] max-h-[85vh], nav arrows outside image",
+      "Component uses client:load directive"
+    ],
+    "passes": false
+  },
+  {
+    "category": "Contact Page — Layout",
+    "description": "Contact page with two-column layout: form on left, farm info on right",
+    "steps_to_verify": [
+      "Desktop (≥768px): grid-cols-[2fr_1fr] with gap-16, px-16 py-32",
+      "Mobile (<768px): single column, form above info, gap-8, px-6 py-16",
+      "Contact info section shows farm address and contact details",
+      "Map placeholder present with note or static image"
+    ],
+    "passes": false
+  },
+  {
+    "category": "Contact Page — Form",
+    "description": "React contact form with name, email, event type dropdown, and message fields with client-side validation",
+    "steps_to_verify": [
+      "Form has fields: Name (text), Email (email), Event Type (select), Message (textarea)",
+      "Event Type options: Wedding, Corporate Event, Private Party, Photography/Film, Other",
+      "Required fields show validation errors when submitted empty",
+      "Email field validates email format",
+      "Mobile: submit button w-full. Desktop: submit button w-auto px-10",
+      "Submit button styled bg-forest text-cream",
+      "Component uses client:load directive"
+    ],
+    "passes": false
+  },
+  {
+    "category": "Contact Page — API Endpoint",
+    "description": "Astro SSR endpoint at /api/contact that receives form submissions and validates input",
+    "steps_to_verify": [
+      "src/pages/api/contact.ts has export const prerender = false",
+      "POST handler accepts JSON with name, email, eventType, message",
+      "Returns 400 with error message if required fields missing",
+      "Returns 400 if email format is invalid",
+      "Returns 200 with success: true on valid submission",
+      "Logs submission data to console (Vercel function logs)",
+      "ContactForm.tsx shows success message on 200 response",
+      "ContactForm.tsx shows error message on non-200 response"
+    ],
+    "passes": false
+  },
+  {
+    "category": "Placeholder Images",
+    "description": "8-10 placeholder farm/landscape photos from Unsplash placed in src/assets/images/",
+    "steps_to_verify": [
+      "At least 8 images exist in src/assets/images/",
+      "Hero image is at least 2400px wide",
+      "Gallery images are at least 1200px wide",
+      "Images are descriptively named (e.g., hero-farm-landscape.jpg)",
+      "All images render correctly throughout the site"
+    ],
+    "passes": false
+  },
+  {
+    "category": "Responsive Design",
+    "description": "All pages and components render correctly across mobile, tablet, and desktop breakpoints per the responsive specs",
+    "steps_to_verify": [
+      "375px (mobile): single-column layouts, hamburger nav, readable text, full-width buttons",
+      "768px (tablet): two-column where specified, appropriate padding transitions",
+      "1024px (laptop): full desktop layout, expanded nav, 3-col gallery grid",
+      "1440px (large desktop): content properly contained, no horizontal scroll",
+      "Images scale appropriately at all breakpoints with consistent aspect-[4/3]",
+      "Touch targets are at least 44px on mobile",
+      "All spacing, font sizes, and grid columns match the per-component responsive specs"
+    ],
+    "passes": false
+  },
+  {
+    "category": "Build & Deploy",
+    "description": "Project builds successfully and deploys to Vercel with static pages and SSR contact endpoint",
+    "steps_to_verify": [
+      "npm run build completes without errors",
+      "Static pages are generated for /, /gallery, /contact",
+      "/api/contact is deployed as Vercel serverless function",
+      "Lighthouse Performance score >= 90",
+      "Lighthouse Accessibility score >= 90",
+      "Lighthouse SEO score >= 90"
+    ],
+    "passes": false
+  }
+]
