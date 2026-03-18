@@ -107,3 +107,12 @@
 - ContactForm.tsx shows success message on 200 response
 - ContactForm.tsx shows error message on non-200 response
 - Deployed as Vercel serverless function via _render.func
+
+### 15. Placeholder Images ✅ (2026-03-18)
+- 10 images downloaded from Unsplash into src/assets/images/
+- hero-farm-landscape.jpg (2400x1350) for hero section
+- about-farm.jpg (1200x900) for about preview section
+- 8 gallery images (1200px+ wide): farm-green-fields, barn-sunset, rolling-hills, horses-pasture, morning-meadow, country-road, garden-flowers, rustic-fence
+- All pages updated to use Astro <Image> component with responsive widths and WebP optimization
+- Lightbox updated to display real images instead of gradient placeholders
+- Hero uses eager loading, gallery uses lazy loading for below-fold images
