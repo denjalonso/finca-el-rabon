@@ -1,1 +1,32 @@
 @import "tailwindcss";
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap");
+
+@theme {
+  --color-cream: #FAF8F5;
+  --color-warm-white: #F5F0EB;
+  --color-sand: #E8DFD3;
+  --color-clay: #C4A882;
+  --color-earth: #8B7355;
+  --color-bark: #5C4A32;
+  --color-charcoal: #2D2A26;
+  --color-forest: #2D5016;
+  --color-sage: #7A8B6F;
+  --color-moss: #4A5E3C;
+
+  --font-serif: "DM Serif Display", serif;
+  --font-sans: "Inter", sans-serif;
+
+  --spacing-section-mobile: 5rem;
+  --spacing-section-desktop: 8rem;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+}
