@@ -4,7 +4,34 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout title="El Rabón Farm" description="A beautiful farm venue for weddings, events, and celebrations surrounded by nature.">
   <main>
-    <h1 class="text-3xl p-8">El Rabón Farm</h1>
-    <p class="px-8">Welcome to El Rabón Farm.</p>
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+      <!-- Background placeholder (replace with <Image> when assets are added) -->
+      <div class="absolute inset-0 bg-gradient-to-b from-bark to-charcoal"></div>
+      <div class="absolute inset-0 bg-black/30"></div>
+
+      <div class="relative z-10 text-center px-6 md:px-12 lg:px-16">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl text-cream drop-shadow-lg mb-4">
+          El Rabón Farm
+        </h1>
+        <p class="text-cream/80 text-lg md:text-xl max-w-2xl mx-auto drop-shadow">
+          A place where nature meets celebration
+        </p>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-8 h-8 text-cream/60"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </div>
+    </section>
   </main>
 </BaseLayout>
