@@ -1,10 +1,40 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const images = [
+  { from: "from-earth", to: "to-clay", alt: "Farm landscape" },
+  { from: "from-sage", to: "to-forest", alt: "Green pastures" },
+  { from: "from-bark", to: "to-earth", alt: "Barn venue" },
+  { from: "from-moss", to: "to-sage", alt: "Garden path" },
+  { from: "from-clay", to: "to-sand", alt: "Golden hour fields" },
+  { from: "from-forest", to: "to-moss", alt: "Tree-lined drive" },
+  { from: "from-earth", to: "to-bark", alt: "Event space" },
+  { from: "from-sage", to: "to-clay", alt: "Sunset view" },
+];
 ---
 
 <BaseLayout title="Gallery — El Rabón Farm" description="Browse photos of El Rabón Farm's stunning landscapes, venues, and event spaces.">
-  <main>
-    <h1 class="text-3xl p-8">Gallery</h1>
-    <p class="px-8">Farm gallery coming soon.</p>
+  <main class="pt-24">
+    <section class="px-4 py-16 sm:px-8 lg:px-16">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-10 md:mb-16">
+          <h1 class="text-3xl md:text-4xl mb-4">Gallery</h1>
+          <p class="text-charcoal/60 max-w-xl mx-auto">
+            Explore the beauty of El Rabón Farm through our collection of photos.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-6">
+          {images.map(({ from, to, alt }, index) => (
+            <button
+              type="button"
+              class={`aspect-[4/3] rounded-lg overflow-hidden bg-gradient-to-br ${from} ${to} shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer border-none p-0`}
+              data-lightbox-index={index}
+              aria-label={`View ${alt}`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
   </main>
 </BaseLayout>
