@@ -1,0 +1,113 @@
+---
+const pathname = Astro.url.pathname;
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/contact", label: "Contact" },
+];
+---
+
+<header
+  id="site-header"
+  class="fixed top-0 left-0 w-full z-50 transition-all duration-300"
+>
+  <nav class="flex items-center justify-between px-6 py-4 md:px-16">
+    <a href="/" class="font-serif text-2xl text-cream no-underline">
+      El Rabón
+    </a>
+
+    <!-- Desktop nav -->
+    <ul class="hidden md:flex items-center gap-8 list-none m-0 p-0">
+      {navLinks.map(({ href, label }) => {
+        const isActive = pathname === href || (href !== "/" && pathname.startsWith(href));
+        return (
+          <li>
+            <a
+              href={href}
+              class:list={[
+                "text-cream/80 no-underline text-sm tracking-wide uppercase transition-colors hover:text-cream",
+                { "!text-cream font-semibold": isActive },
+              ]}
+            >
+              {label}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="menu-toggle"
+      class="md:hidden flex flex-col justify-center items-center gap-1.5 w-10 h-10 bg-transparent border-none cursor-pointer"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <span class="block w-6 h-0.5 bg-cream transition-all duration-300 origin-center" />
+      <span class="block w-6 h-0.5 bg-cream transition-all duration-300" />
+      <span class="block w-6 h-0.5 bg-cream transition-all duration-300 origin-center" />
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="md:hidden overflow-hidden max-h-0 transition-all duration-300"
+  >
+    <ul class="flex flex-col items-center gap-6 py-8 list-none m-0 px-6">
+      {navLinks.map(({ href, label }) => {
+        const isActive = pathname === href || (href !== "/" && pathname.startsWith(href));
+        return (
+          <li>
+            <a
+              href={href}
+              class:list={[
+                "text-cream/80 no-underline text-lg tracking-wide uppercase transition-colors hover:text-cream",
+                { "!text-cream font-semibold": isActive },
+              ]}
+            >
+              {label}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById("site-header")!;
+  const toggle = document.getElementById("menu-toggle")!;
+  const menu = document.getElementById("mobile-menu")!;
+  const bars = toggle.querySelectorAll("span");
+
+  // Scroll: add backdrop blur + background
+  function onScroll() {
+    if (window.scrollY > 50) {
+      header.classList.add("bg-charcoal/90", "backdrop-blur-md", "shadow-lg");
+    } else {
+      header.classList.remove("bg-charcoal/90", "backdrop-blur-md", "shadow-lg");
+    }
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu toggle
+  let open = false;
+  toggle.addEventListener("click", () => {
+    open = !open;
+    toggle.setAttribute("aria-expanded", String(open));
+
+    if (open) {
+      menu.style.maxHeight = menu.scrollHeight + "px";
+      bars[0].style.transform = "rotate(45deg) translate(3px, 3px)";
+      bars[1].style.opacity = "0";
+      bars[2].style.transform = "rotate(-45deg) translate(3px, -3px)";
+    } else {
+      menu.style.maxHeight = "0";
+      bars[0].style.transform = "";
+      bars[1].style.opacity = "";
+      bars[2].style.transform = "";
+    }
+  });
+</script>
