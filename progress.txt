@@ -116,3 +116,17 @@
 - All pages updated to use Astro <Image> component with responsive widths and WebP optimization
 - Lightbox updated to display real images instead of gradient placeholders
 - Hero uses eager loading, gallery uses lazy loading for below-fold images
+
+### 16. Responsive Design ✅ (2026-03-18)
+- 375px mobile: single-column layouts, hamburger nav, full-width buttons, readable text
+- 768px tablet: two-column where specified, expanded nav, appropriate padding
+- 1024px laptop: full desktop layout, 3-col gallery grid, 4-col gallery preview
+- 1440px large desktop: content contained via max-w-6xl, no horizontal scroll
+- Touch targets: hamburger button 44px (w-11 h-11), lightbox close 44px, nav arrows 48px
+- Mobile nav links padded (py-2) for adequate tap area
+- Contact info links padded (py-1) for touch targets
+- Gallery page padding aligned with other pages (px-6 mobile)
+- Lightbox arrows positioned 12px from edge on mobile for thumb comfort
+- Fixed ContactForm hydration error (React.ChangeEvent → ChangeEvent import)
+- All images maintain aspect-[4/3] across breakpoints
+- Verified visually at 375px, 768px, and 1440px via Playwright screenshots
