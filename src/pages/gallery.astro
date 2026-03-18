@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Lightbox from "../components/Lightbox";
 
 const images = [
   { from: "from-earth", to: "to-clay", alt: "Farm landscape" },
@@ -11,6 +12,11 @@ const images = [
   { from: "from-earth", to: "to-bark", alt: "Event space" },
   { from: "from-sage", to: "to-clay", alt: "Sunset view" },
 ];
+
+const lightboxImages = images.map(({ from, to, alt }) => ({
+  gradient: `${from} ${to}`,
+  alt,
+}));
 ---
 
 <BaseLayout title="Gallery — El Rabón Farm" description="Browse photos of El Rabón Farm's stunning landscapes, venues, and event spaces.">
@@ -37,4 +43,5 @@ const images = [
       </div>
     </section>
   </main>
+  <Lightbox client:load images={lightboxImages} />
 </BaseLayout>
