@@ -39,7 +39,7 @@ const navLinks = [
     <!-- Mobile hamburger -->
     <button
       id="menu-toggle"
-      class="md:hidden flex flex-col justify-center items-center gap-1.5 w-10 h-10 bg-transparent border-none cursor-pointer"
+      class="md:hidden flex flex-col justify-center items-center gap-1.5 w-11 h-11 bg-transparent border-none cursor-pointer"
       aria-label="Toggle menu"
       aria-expanded="false"
     >
@@ -62,7 +62,7 @@ const navLinks = [
             <a
               href={href}
               class:list={[
-                "text-cream/80 no-underline text-lg tracking-wide uppercase transition-colors hover:text-cream",
+                "text-cream/80 no-underline text-lg tracking-wide uppercase transition-colors hover:text-cream py-2",
                 { "!text-cream font-semibold": isActive },
               ]}
             >

@@ -82,7 +82,7 @@ export default function Lightbox({ images }: LightboxProps) {
       {/* Close button */}
       <button
         onClick={close}
-        className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center text-white/70 hover:text-white text-2xl cursor-pointer bg-transparent border-none"
+        className="absolute top-4 right-4 z-10 w-11 h-11 flex items-center justify-center text-white/70 hover:text-white text-2xl cursor-pointer bg-transparent border-none"
         aria-label="Close lightbox"
       >
         &times;
@@ -91,7 +91,7 @@ export default function Lightbox({ images }: LightboxProps) {
       {/* Previous arrow */}
       <button
         onClick={(e) => { e.stopPropagation(); prev(); }}
-        className="absolute left-2 lg:left-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center text-white/70 hover:text-white text-3xl cursor-pointer bg-transparent border-none"
+        className="absolute left-3 lg:left-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center text-white/70 hover:text-white text-3xl cursor-pointer bg-transparent border-none"
         aria-label="Previous image"
       >
         &#8249;
@@ -107,7 +107,7 @@ export default function Lightbox({ images }: LightboxProps) {
       {/* Next arrow */}
       <button
         onClick={(e) => { e.stopPropagation(); next(); }}
-        className="absolute right-2 lg:right-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center text-white/70 hover:text-white text-3xl cursor-pointer bg-transparent border-none"
+        className="absolute right-3 lg:right-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center text-white/70 hover:text-white text-3xl cursor-pointer bg-transparent border-none"
         aria-label="Next image"
       >
         &#8250;
