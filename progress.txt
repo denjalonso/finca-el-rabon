@@ -1,0 +1,98 @@
+## Completed Tasks
+
+### 1. Project Setup ✅ (2026-03-18)
+- Initialized Astro 5.18.1 project with React 19, Tailwind CSS v4.2, and Vercel adapter
+- Created astro.config.mjs with output: 'static', vercel() adapter, react() integration, @tailwindcss/vite plugin
+- Set up project structure: src/pages, src/layouts, src/components, src/styles, src/assets/images
+- Created minimal index.astro page and global.css with Tailwind import
+- Verified dev server starts successfully on localhost:4321
+
+### 2. Design System ✅ (2026-03-18)
+- Defined Tailwind v4 @theme with earth-tone colors: cream, warm-white, sand, clay, earth, bark, charcoal, forest, sage, moss
+- Imported Google Fonts for DM Serif Display and Inter
+- Headings render in DM Serif Display, body text in Inter
+- Section spacing tokens: 8rem desktop / 5rem mobile
+- Background is cream (#FAF8F5), text is charcoal (#2D2A26)
+
+### 3. Layout Shell ✅ (2026-03-18)
+- Created BaseLayout.astro accepting title, description, ogImage props
+- Created SEO.astro rendering <title>, meta description, Open Graph, and Twitter card tags
+- All three pages (/, /gallery, /contact) use BaseLayout and render correctly
+- Fixed CSS @import order warning (Google Fonts before Tailwind)
+
+### 4. Header Navigation ✅ (2026-03-18)
+- Sticky header with 'El Rabón' logo in serif font on the left
+- Three nav links on the right: Home, Gallery, Contact
+- Transparent at top, gains bg + backdrop-blur on scroll (>50px)
+- Mobile (<768px): hamburger menu with animated bars, toggles open/closed
+- Desktop (≥768px): nav links display inline horizontally
+- Active page link visually distinguished with font-semibold + full opacity
+
+### 5. Footer ✅ (2026-03-18)
+- bg-charcoal with cream text, centered layout
+- Displays farm name in serif, tagline, and copyright with dynamic year
+- Renders consistently on all three pages
+- Responsive padding: px-6 py-12 mobile, px-16 py-16 desktop
+
+### 6. Home — Hero Section ✅ (2026-03-18)
+- Full viewport height (100vh) hero with gradient placeholder background
+- Farm name centered in large serif with drop-shadow for readability
+- Tagline below farm name with subtle opacity
+- Animated bounce chevron scroll indicator at bottom
+- Responsive text: text-4xl mobile, text-5xl tablet, text-6xl desktop
+- Dark overlay for text readability (will swap gradient for real image in Task 14)
+
+### 7. Home — About Preview ✅ (2026-03-18)
+- Desktop (≥768px): image on left, text on right in two-column grid
+- Mobile (<768px): stacks vertically, image above text, full width
+- Contains 3 sentences about the farm
+- Responsive spacing: px-6 py-16 gap-8 mobile, px-12 py-32 gap-16 desktop
+- Gradient placeholder for image (will use Astro <Image> in Task 14)
+
+### 8. Home — Gallery Preview ✅ (2026-03-18)
+- Grid: 1-col mobile, 2-col tablet (sm), 4-col desktop (lg)
+- 4 gradient placeholder images with aspect-[4/3]
+- Hover effect: scale-105 + shadow-lg transition
+- 'View Full Gallery' link navigates to /gallery
+- Responsive spacing: px-6 gap-4 mobile, px-12 gap-6 tablet, px-16 gap-8 desktop
+
+### 9. Home — CTA Section ✅ (2026-03-18)
+- Sand background with centered event inquiry text
+- Heading text-2xl mobile, text-3xl desktop
+- Button: bg-forest text-cream, w-full mobile, w-auto px-8 desktop
+- Button hover darkening effect, navigates to /contact
+- Responsive padding: px-6 py-16 mobile, px-16 py-24 desktop
+
+### 10. Gallery Page ✅ (2026-03-18)
+- Page title "Gallery" with subtitle
+- Grid: 1-col mobile, 2-col tablet (sm), 3-col desktop (lg)
+- 8 gradient placeholder images with rounded corners, shadow, hover scale
+- aspect-[4/3] on all images, buttons wired with data-lightbox-index for Task 11
+- Responsive: gap-4 px-4 mobile, gap-6 px-8 tablet, gap-6 px-16 desktop
+
+### 11. Gallery — Lightbox ✅ (2026-03-18)
+- React Lightbox component opens on gallery image click
+- Prev/next arrow buttons navigate between images
+- Keyboard: left/right arrows navigate, Escape closes
+- Click outside image closes lightbox
+- Body scroll locked while open
+- Fade-in animation via custom @keyframes
+- Mobile: max-w-[95vw], touch swipe support. Desktop: max-w-[85vw]
+- Uses client:load directive, image counter at bottom
+
+### 12. Contact Page — Layout ✅ (2026-03-18)
+- Desktop (≥768px): grid-cols-[2fr_1fr] with gap-16, px-16 py-32
+- Mobile (<768px): single column, form above info, gap-8, px-6 py-16
+- Contact info: address, email, phone with forest-colored links
+- Map placeholder with sand background
+
+### 13. Contact Page — Form ✅ (2026-03-18)
+- React ContactForm component with client:load directive
+- Fields: Name (text), Email (email), Event Type (select), Message (textarea)
+- Event Type options: Wedding, Corporate Event, Private Party, Photography/Film, Other
+- Client-side validation: required fields, email format check
+- Validation errors displayed below each field with red styling
+- Submit button: bg-forest text-cream, w-full mobile, w-auto px-10 desktop
+- Form posts to /api/contact endpoint, shows success message on 200
+- Shows error message on non-200 or network failure
+- Loading state with "Sending..." text while submitting
