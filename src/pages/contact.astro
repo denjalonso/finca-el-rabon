@@ -3,8 +3,51 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Contact — El Rabón Farm" description="Get in touch to plan your event at El Rabón Farm. Weddings, corporate events, and private parties.">
-  <main>
-    <h1 class="text-3xl p-8">Contact</h1>
-    <p class="px-8">Contact page coming soon.</p>
+  <main class="pt-24">
+    <section class="px-6 py-16 md:px-16 md:py-32">
+      <div class="max-w-6xl mx-auto">
+        <h1 class="text-3xl md:text-4xl text-center mb-10 md:mb-16">Get in Touch</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-8 md:gap-16">
+          <!-- Form placeholder (Task 13) -->
+          <div>
+            <p class="text-charcoal/60">Contact form coming soon.</p>
+          </div>
+
+          <!-- Farm info -->
+          <div>
+            <h2 class="text-xl mb-6">Visit Us</h2>
+
+            <div class="mb-6">
+              <h3 class="text-sm font-sans font-semibold uppercase tracking-wide text-charcoal/50 mb-2">Address</h3>
+              <p class="text-charcoal/80 leading-relaxed">
+                El Rabón Farm<br />
+                Camino Rural s/n<br />
+                Valle del Rabón, México
+              </p>
+            </div>
+
+            <div class="mb-6">
+              <h3 class="text-sm font-sans font-semibold uppercase tracking-wide text-charcoal/50 mb-2">Email</h3>
+              <a href="mailto:info@elrabonfarm.com" class="text-forest hover:text-bark transition-colors">
+                info@elrabonfarm.com
+              </a>
+            </div>
+
+            <div class="mb-8">
+              <h3 class="text-sm font-sans font-semibold uppercase tracking-wide text-charcoal/50 mb-2">Phone</h3>
+              <a href="tel:+521234567890" class="text-forest hover:text-bark transition-colors">
+                +52 123 456 7890
+              </a>
+            </div>
+
+            <!-- Map placeholder -->
+            <div class="aspect-[4/3] rounded-lg bg-sand flex items-center justify-center">
+              <p class="text-charcoal/40 text-sm">Map coming soon</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 </BaseLayout>
