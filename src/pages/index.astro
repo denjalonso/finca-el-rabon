@@ -54,5 +54,32 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         </div>
       </div>
     </section>
+
+    <!-- Gallery Preview -->
+    <section class="px-6 py-16 md:px-12 md:py-32 lg:px-16 bg-warm-white">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl md:text-4xl text-center mb-10 md:mb-16">A Glimpse of the Farm</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+          {[
+            { from: "from-earth", to: "to-clay" },
+            { from: "from-sage", to: "to-forest" },
+            { from: "from-bark", to: "to-earth" },
+            { from: "from-moss", to: "to-sage" },
+          ].map(({ from, to }) => (
+            <div class={`aspect-[4/3] rounded-lg overflow-hidden bg-gradient-to-br ${from} ${to} transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer`} />
+          ))}
+        </div>
+
+        <div class="text-center mt-10 md:mt-16">
+          <a
+            href="/gallery"
+            class="inline-block text-forest font-medium hover:text-bark transition-colors underline underline-offset-4"
+          >
+            View Full Gallery &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 </BaseLayout>
