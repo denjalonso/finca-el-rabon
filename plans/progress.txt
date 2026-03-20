@@ -140,3 +140,21 @@
   - Home: Performance 100, Accessibility 95, SEO 100
   - Gallery: Performance 95, Accessibility 95, SEO 100
   - Contact: Performance 100, Accessibility 96, SEO 100
+
+### 18. Real Farm Assets — Export ✅ (2026-03-20)
+- All photos from 'El Rabon' album exported to tmp/el-rabon-export/
+- 9 JPEG images: IMG_3815, IMG_3884, IMG_3969, IMG_4076, IMG_4090, IMG_4117, IMG_4118, IMG_4119, IMG_4120
+- 4 video files preserved for future use
+
+### 19. Real Farm Assets — Replace Placeholders ✅ (2026-03-20)
+- Removed 10 old Unsplash placeholder images from src/assets/images/
+- IMG_3969 copied as hero-deck-ocean.jpg (hero section)
+- IMG_3815 copied as about-stone-cottage.jpg (about section)
+- 7 gallery images copied with descriptive names: gallery-farm-landscape, gallery-hillside-view, gallery-farm-grounds, gallery-countryside-1 through gallery-countryside-4
+- Updated all image imports in src/pages/index.astro (hero, about, 4 gallery previews)
+- Updated all image imports in src/pages/gallery.astro (7 gallery images)
+- Lightbox displays real photos correctly
+- Build completes without errors
+
+### 20. Real Farm Assets — Videos (Future) ✅ (2026-03-20)
+- Video files preserved in tmp/el-rabon-export/: IMG_3815.mov, IMG_3884.mov, IMG_3969.mov, IMG_4083.mp4
