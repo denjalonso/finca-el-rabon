@@ -1,0 +1,29 @@
+name: Claude Security Review
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  security-review:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Review the changes in this PR for security vulnerabilities. Focus on:
+            - XSS and injection risks
+            - Exposed secrets or credentials
+            - Insecure dependencies or configurations
+            - OWASP Top 10 issues
+            - Unsafe data handling
+
+            Provide a clear summary. If no issues are found, confirm the changes look safe.
