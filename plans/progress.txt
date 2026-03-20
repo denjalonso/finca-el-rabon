@@ -165,3 +165,10 @@
 - Address resolved via reverse geocoding from Google Maps coordinates (28.366179, -16.412216)
 - Address is now a clickable link that opens Google Maps at the correct location
 - Phone and email kept as-is (no real values provided yet)
+
+### 22. Contact Page — Embedded Map ✅ (2026-03-20)
+- Replaced 'Map coming soon' placeholder div with Google Maps embed iframe
+- Map centered on farm coordinates (28.366179, -16.412216) at zoom level 15
+- iframe has aspect-[4/3] and rounded corners via overflow-hidden on wrapper div
+- Responsive: 100% width/height fills the container at all breakpoints
+- Build completes without errors

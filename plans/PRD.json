@@ -276,7 +276,7 @@
       "Map is responsive and displays correctly on mobile and desktop",
       "Map loads without errors and shows the correct pin location"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Internationalization (i18n)",
