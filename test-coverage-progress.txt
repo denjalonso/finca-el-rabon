@@ -10,3 +10,8 @@
 - Tested: Lightbox — user clicks gallery thumbnail, sees full image, navigates next/prev, closes
 - Coverage: 49.28% → 76.97% stmts, 45.71% → 64.4% branch, 85.71% → 78.57% funcs
 - Remaining gaps: contact.ts API (0%), Lightbox keyboard nav + touch swipe, ContactForm error/validation branches
+
+## Iteration 3
+- Tested: contact.ts API — user submits valid inquiry (success), missing/invalid fields (validation errors), malformed JSON (clear error)
+- Coverage: 76.97% → 89.56% stmts, 64.4% → 71.05% branch, 78.57% → 80% funcs
+- Remaining gaps: Lightbox keyboard nav (lines 39-42) + touch swipe (70-80), ContactForm error/validation branches (80-85, 176-178)
