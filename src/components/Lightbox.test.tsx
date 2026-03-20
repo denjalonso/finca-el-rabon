@@ -2,6 +2,9 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, it, expect } from "vitest";
 import Lightbox from "./Lightbox";
+import { getLightboxAriaLabels, useTranslations } from "../i18n/utils";
+
+const ariaLabels = getLightboxAriaLabels(useTranslations("en"));
 
 const images = [
   { src: "/img/barn.jpg", alt: "Barn" },
@@ -14,11 +17,11 @@ describe("Lightbox", () => {
     const user = userEvent.setup();
 
     // Render the lightbox + a simulated gallery trigger
-    const { container } = render(
+    render(
       <div>
         <button data-lightbox-index="0">View Barn</button>
         <button data-lightbox-index="1">View Field</button>
-        <Lightbox images={images} />
+        <Lightbox images={images} ariaLabels={ariaLabels} />
       </div>
     );
 
@@ -52,7 +55,7 @@ describe("Lightbox", () => {
     render(
       <div>
         <button data-lightbox-index="0">Open gallery</button>
-        <Lightbox images={images} />
+        <Lightbox images={images} ariaLabels={ariaLabels} />
       </div>
     );
 

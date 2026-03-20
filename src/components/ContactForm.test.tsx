@@ -2,6 +2,9 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, it, expect, beforeEach } from "vitest";
 import ContactForm from "./ContactForm";
+import { getContactFormTranslations, useTranslations } from "../i18n/utils";
+
+const translations = getContactFormTranslations(useTranslations("en"));
 
 describe("ContactForm", () => {
   beforeEach(() => {
@@ -11,7 +14,7 @@ describe("ContactForm", () => {
 
   it("shows success message after user submits a valid inquiry", async () => {
     const user = userEvent.setup();
-    render(<ContactForm />);
+    render(<ContactForm translations={translations} />);
 
     await user.type(screen.getByLabelText("Name"), "Maria Lopez");
     await user.type(screen.getByLabelText("Email"), "maria@example.com");
@@ -32,7 +35,7 @@ describe("ContactForm", () => {
 
   it("shows validation errors when user submits empty form and clears them on input", async () => {
     const user = userEvent.setup();
-    render(<ContactForm />);
+    render(<ContactForm translations={translations} />);
 
     await user.click(screen.getByRole("button", { name: "Send Message" }));
 
@@ -51,7 +54,7 @@ describe("ContactForm", () => {
       new Response(JSON.stringify({ error: "Server error" }), { status: 500 });
 
     const user = userEvent.setup();
-    render(<ContactForm />);
+    render(<ContactForm translations={translations} />);
 
     await user.type(screen.getByLabelText("Name"), "Carlos Ruiz");
     await user.type(screen.getByLabelText("Email"), "carlos@example.com");

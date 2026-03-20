@@ -172,3 +172,19 @@
 - iframe has aspect-[4/3] and rounded corners via overflow-hidden on wrapper div
 - Responsive: 100% width/height fills the container at all breakpoints
 - Build completes without errors
+
+### 23. Internationalization (i18n) ✅ (2026-03-20)
+- Added i18n config to astro.config.mjs: defaultLocale: 'es', locales: ['es', 'en']
+- Created src/i18n/es.json and src/i18n/en.json with all UI strings (nav, hero, about, gallery, CTA, contact form, lightbox, footer, SEO meta)
+- Created src/i18n/utils.ts with useTranslations() helper, ContactFormTranslations and LightboxAriaLabels types, and helper functions
+- Pages reorganized to src/pages/[lang]/ with getStaticPaths() for 'es' and 'en'
+- Old root pages (/, /gallery, /contact) now redirect to /es/* equivalents
+- Redirects also configured in astro.config.mjs for clean redirect behavior
+- Header.astro: language switcher (ES↔EN toggle) in desktop nav and mobile menu; nav links translated; switcher preserves current page path
+- Footer.astro: tagline and copyright translated via useTranslations()
+- BaseLayout.astro: sets <html lang={lang}> dynamically; passes lang to Header and Footer
+- SEO.astro: adds og:locale (es_ES or en_US) based on current language
+- ContactForm.tsx: refactored to accept translations prop (all labels, errors, success messages)
+- Lightbox.tsx: refactored to accept ariaLabels prop (close, prev, next)
+- Test files updated to pass required translations/ariaLabels props using English locale
+- Build completes without errors; all 8 tests pass; TypeScript type check clean

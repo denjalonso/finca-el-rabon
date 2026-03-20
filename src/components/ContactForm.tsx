@@ -1,4 +1,5 @@
 import { useState, type FormEvent, type ChangeEvent } from "react";
+import type { ContactFormTranslations } from "../i18n/utils";
 
 interface FormData {
   name: string;
@@ -14,32 +15,15 @@ interface FormErrors {
   message?: string;
 }
 
-const EVENT_TYPES = [
-  "Wedding",
-  "Corporate Event",
-  "Private Party",
-  "Photography/Film",
-  "Other",
-];
-
 function validateEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-function validate(data: FormData): FormErrors {
-  const errors: FormErrors = {};
-  if (!data.name.trim()) errors.name = "Name is required.";
-  if (!data.email.trim()) {
-    errors.email = "Email is required.";
-  } else if (!validateEmail(data.email)) {
-    errors.email = "Please enter a valid email address.";
-  }
-  if (!data.eventType) errors.eventType = "Please select an event type.";
-  if (!data.message.trim()) errors.message = "Message is required.";
-  return errors;
+interface Props {
+  translations: ContactFormTranslations;
 }
 
-export default function ContactForm() {
+export default function ContactForm({ translations: tr }: Props) {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -48,6 +32,19 @@ export default function ContactForm() {
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+  function validate(data: FormData): FormErrors {
+    const errs: FormErrors = {};
+    if (!data.name.trim()) errs.name = tr.errors.name;
+    if (!data.email.trim()) {
+      errs.email = tr.errors.emailRequired;
+    } else if (!validateEmail(data.email)) {
+      errs.email = tr.errors.emailInvalid;
+    }
+    if (!data.eventType) errs.eventType = tr.errors.eventType;
+    if (!data.message.trim()) errs.message = tr.errors.message;
+    return errs;
+  }
 
   function handleChange(
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -88,10 +85,8 @@ export default function ContactForm() {
   if (status === "success") {
     return (
       <div className="rounded-lg bg-forest/10 p-8 text-center">
-        <h3 className="text-xl mb-2">Thank you!</h3>
-        <p className="text-charcoal/70">
-          We've received your message and will get back to you soon.
-        </p>
+        <h3 className="text-xl mb-2">{tr.success.heading}</h3>
+        <p className="text-charcoal/70">{tr.success.text}</p>
       </div>
     );
   }
@@ -100,7 +95,7 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} noValidate>
       <div className="mb-5">
         <label htmlFor="name" className="block text-sm font-semibold uppercase tracking-wide text-charcoal/50 mb-2">
-          Name
+          {tr.labels.name}
         </label>
         <input
           type="text"
@@ -117,7 +112,7 @@ export default function ContactForm() {
 
       <div className="mb-5">
         <label htmlFor="email" className="block text-sm font-semibold uppercase tracking-wide text-charcoal/50 mb-2">
-          Email
+          {tr.labels.email}
         </label>
         <input
           type="email"
@@ -134,7 +129,7 @@ export default function ContactForm() {
 
       <div className="mb-5">
         <label htmlFor="eventType" className="block text-sm font-semibold uppercase tracking-wide text-charcoal/50 mb-2">
-          Event Type
+          {tr.labels.eventType}
         </label>
         <select
           id="eventType"
@@ -145,8 +140,8 @@ export default function ContactForm() {
             errors.eventType ? "border-red-400" : "border-charcoal/20"
           }`}
         >
-          <option value="">Select an event type</option>
-          {EVENT_TYPES.map((type) => (
+          <option value="">{tr.placeholders.eventType}</option>
+          {tr.events.map((type) => (
             <option key={type} value={type}>
               {type}
             </option>
@@ -157,7 +152,7 @@ export default function ContactForm() {
 
       <div className="mb-6">
         <label htmlFor="message" className="block text-sm font-semibold uppercase tracking-wide text-charcoal/50 mb-2">
-          Message
+          {tr.labels.message}
         </label>
         <textarea
           id="message"
@@ -173,9 +168,7 @@ export default function ContactForm() {
       </div>
 
       {status === "error" && (
-        <p className="mb-4 text-sm text-red-500">
-          Something went wrong. Please try again.
-        </p>
+        <p className="mb-4 text-sm text-red-500">{tr.submitError}</p>
       )}
 
       <button
@@ -183,7 +176,7 @@ export default function ContactForm() {
         disabled={status === "submitting"}
         className="w-full md:w-auto md:px-10 py-3 rounded-lg bg-forest text-cream font-semibold hover:bg-forest/85 transition-colors disabled:opacity-60"
       >
-        {status === "submitting" ? "Sending..." : "Send Message"}
+        {status === "submitting" ? tr.sending : tr.submit}
       </button>
     </form>
   );

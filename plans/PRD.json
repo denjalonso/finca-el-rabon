@@ -7,7 +7,7 @@
       "astro.config.mjs has output: 'static', vercel() adapter, react() integration, and @tailwindcss/vite plugin",
       "npm run dev starts without errors on localhost"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Design System",
@@ -19,7 +19,7 @@
       "Section spacing uses 8rem desktop / 5rem mobile tokens",
       "Background is cream (#FAF8F5), text is charcoal (#2D2A26)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Layout Shell",
@@ -29,7 +29,7 @@
       "SEO.astro renders <title>, meta description, Open Graph, and Twitter card tags",
       "All three pages (/, /gallery, /contact) use BaseLayout and render correctly"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Header Navigation",
@@ -42,7 +42,7 @@
       "Desktop (≥768px): nav links display inline horizontally",
       "Active page link is visually distinguished"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Footer",
@@ -53,7 +53,7 @@
       "Renders consistently on all three pages",
       "Mobile: px-6 py-12, Desktop: px-16 py-16"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Home — Hero Section",
@@ -67,7 +67,7 @@
       "Text is readable over the image (overlay or text shadow)",
       "Mobile: title text-4xl, px-6. Tablet: text-5xl, px-12. Desktop: text-6xl, px-16"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Home — About Preview",
@@ -79,7 +79,7 @@
       "Mobile: px-6 py-16, gap-8. Desktop: px-12 py-32, gap-16",
       "Image uses Astro <Image> component for optimization"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Home — Gallery Preview",
@@ -91,7 +91,7 @@
       "'View Full Gallery' link navigates to /gallery",
       "Mobile: px-6 gap-4. Tablet: px-12 gap-6. Desktop: px-16 gap-8"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Home — CTA Section",
@@ -104,7 +104,7 @@
       "Button styled with bg-forest text-cream, hover darkening effect",
       "Button navigates to /contact"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Gallery Page",
@@ -116,7 +116,7 @@
       "Images have aspect-[4/3] and use Astro <Image> with lazy loading",
       "Clicking an image opens the lightbox"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Gallery — Lightbox",
@@ -134,7 +134,7 @@
       "Desktop: max-w-[85vw] max-h-[85vh], nav arrows outside image",
       "Component uses client:load directive"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Contact Page — Layout",
@@ -145,7 +145,7 @@
       "Contact info section shows farm address and contact details",
       "Map placeholder present with note or static image"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Contact Page — Form",
@@ -159,7 +159,7 @@
       "Submit button styled bg-forest text-cream",
       "Component uses client:load directive"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Contact Page — API Endpoint",
@@ -174,7 +174,7 @@
       "ContactForm.tsx shows success message on 200 response",
       "ContactForm.tsx shows error message on non-200 response"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Placeholder Images",
@@ -186,7 +186,7 @@
       "Images are descriptively named (e.g., hero-farm-landscape.jpg)",
       "All images render correctly throughout the site"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Responsive Design",
@@ -200,7 +200,7 @@
       "Touch targets are at least 44px on mobile",
       "All spacing, font sizes, and grid columns match the per-component responsive specs"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Build & Deploy",
@@ -213,7 +213,7 @@
       "Lighthouse Accessibility score >= 90",
       "Lighthouse SEO score >= 90"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Real Farm Assets — Export",
@@ -234,7 +234,7 @@
       "Remaining 7 photos (IMG_3884, IMG_4076, IMG_4090, IMG_4117, IMG_4118, IMG_4119, IMG_4120) are copied as gallery images",
       "All filenames are descriptive and match their content"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Real Farm Assets — Update Code References",
@@ -246,7 +246,7 @@
       "Lightbox displays real photos correctly at full resolution",
       "Build completes without errors (pnpm run build)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Real Farm Assets — Videos (Future)",
@@ -264,7 +264,7 @@
       "Address text is clickable and opens Google Maps at the correct location",
       "Phone number and email are updated if real values are available"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Contact Page — Embedded Map",
@@ -294,6 +294,6 @@
       "BaseLayout.astro sets lang attribute dynamically based on current locale",
       "Language switcher preserves the current page when switching languages"
     ],
-    "passes": false
+    "passes": true
   }
 ]

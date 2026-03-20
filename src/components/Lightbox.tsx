@@ -1,10 +1,12 @@
 import { useState, useEffect, useCallback, useRef } from "react";
+import type { LightboxAriaLabels } from "../i18n/utils";
 
 interface LightboxProps {
   images: { src: string; alt: string }[];
+  ariaLabels: LightboxAriaLabels;
 }
 
-export default function Lightbox({ images }: LightboxProps) {
+export default function Lightbox({ images, ariaLabels }: LightboxProps) {
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
   const touchStartX = useRef<number | null>(null);
   const isOpen = currentIndex !== null;
@@ -83,7 +85,7 @@ export default function Lightbox({ images }: LightboxProps) {
       <button
         onClick={close}
         className="absolute top-4 right-4 z-10 w-11 h-11 flex items-center justify-center text-white/70 hover:text-white text-2xl cursor-pointer bg-transparent border-none"
-        aria-label="Close lightbox"
+        aria-label={ariaLabels.close}
       >
         &times;
       </button>
@@ -92,7 +94,7 @@ export default function Lightbox({ images }: LightboxProps) {
       <button
         onClick={(e) => { e.stopPropagation(); prev(); }}
         className="absolute left-3 lg:left-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center text-white/70 hover:text-white text-3xl cursor-pointer bg-transparent border-none"
-        aria-label="Previous image"
+        aria-label={ariaLabels.prev}
       >
         &#8249;
       </button>
@@ -108,7 +110,7 @@ export default function Lightbox({ images }: LightboxProps) {
       <button
         onClick={(e) => { e.stopPropagation(); next(); }}
         className="absolute right-3 lg:right-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center text-white/70 hover:text-white text-3xl cursor-pointer bg-transparent border-none"
-        aria-label="Next image"
+        aria-label={ariaLabels.next}
       >
         &#8250;
       </button>
