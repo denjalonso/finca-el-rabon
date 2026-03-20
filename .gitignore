@@ -5,3 +5,11 @@ dist/
 .env
 .env.*
 !.env.example
+
+# IDE
+.idea/
+
+# Test
+coverage/
+.playwright-mcp/
+*.png
