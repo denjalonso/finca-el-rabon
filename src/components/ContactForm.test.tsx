@@ -29,4 +29,22 @@ describe("ContactForm", () => {
       screen.getByText(/we've received your message/i)
     ).toBeInTheDocument();
   });
+
+  it("shows error message when the server fails so user can retry", async () => {
+    globalThis.fetch = async () =>
+      new Response(JSON.stringify({ error: "Server error" }), { status: 500 });
+
+    const user = userEvent.setup();
+    render(<ContactForm />);
+
+    await user.type(screen.getByLabelText("Name"), "Carlos Ruiz");
+    await user.type(screen.getByLabelText("Email"), "carlos@example.com");
+    await user.selectOptions(screen.getByLabelText("Event Type"), "Corporate Event");
+    await user.type(screen.getByLabelText("Message"), "Planning a team retreat.");
+    await user.click(screen.getByRole("button", { name: "Send Message" }));
+
+    expect(
+      await screen.findByText("Something went wrong. Please try again.")
+    ).toBeInTheDocument();
+  });
 });

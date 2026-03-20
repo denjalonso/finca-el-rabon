@@ -21,3 +21,8 @@
 - Coverage: 89.56% → 91% stmts, 71.05% → 73.17% branch, 80% → 86.66% funcs
 - Infra: added cleanup afterEach in vitest.setup.ts (happy-dom doesn't auto-cleanup, caused cross-test DOM leaks)
 - Remaining gaps: Lightbox touch swipe (70-80), ContactForm error/validation branches (80-85, 176-178), contact.ts line 30
+
+## Iteration 5
+- Tested: ContactForm error state — user sees "Something went wrong" when server returns 500
+- Coverage: 91% → 92.44% stmts, 73.17% → 75.6% branch, 86.66% funcs (unchanged)
+- Remaining gaps: Lightbox touch swipe (70-80), ContactForm network error catch branch (84-85), validation branches (55-59, 66-68), contact.ts line 30
