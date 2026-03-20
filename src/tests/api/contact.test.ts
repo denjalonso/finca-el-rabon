@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { POST } from "./contact";
+import { POST } from "../../pages/api/contact";
 
 function makeRequest(body: unknown): Request {
   return new Request("http://localhost/api/contact", {
