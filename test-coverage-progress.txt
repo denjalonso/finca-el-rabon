@@ -1,0 +1,7 @@
+# Test Coverage Progress
+
+## Iteration 1
+- Tested: ContactForm — user submits valid inquiry and sees success message
+- Coverage: 0% → 49.28% stmts, 45.71% branch, 85.71% funcs
+- Infra: switched jsdom→happy-dom (jsdom 29 ESM compat issue), added vitest.setup.ts for jest-dom matchers, installed @testing-library/user-event
+- Remaining gaps: Lightbox (0%), contact.ts API (0%), ContactForm error/validation branches
