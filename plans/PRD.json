@@ -277,5 +277,23 @@
       "Map loads without errors and shows the correct pin location"
     ],
     "passes": false
+  },
+  {
+    "category": "Internationalization (i18n)",
+    "description": "Add English and Spanish language support using Astro's built-in i18n routing, with translation files and a language switcher",
+    "steps_to_verify": [
+      "astro.config.mjs has i18n config with defaultLocale: 'es' and locales: ['es', 'en']",
+      "Translation files exist at src/i18n/es.json and src/i18n/en.json with all UI strings",
+      "Pages are accessible at /es/* (default) and /en/* routes",
+      "All hardcoded text in pages and components uses translation helper instead of inline strings",
+      "ContactForm.tsx form labels, validation messages, and status messages are translated",
+      "Lightbox.tsx aria labels are translated",
+      "Header.astro has a language switcher (ES/EN toggle) and nav links are translated",
+      "Footer.astro tagline and copyright are translated",
+      "SEO meta tags (title, description, og:locale) reflect the current language",
+      "BaseLayout.astro sets lang attribute dynamically based on current locale",
+      "Language switcher preserves the current page when switching languages"
+    ],
+    "passes": false
   }
 ]
