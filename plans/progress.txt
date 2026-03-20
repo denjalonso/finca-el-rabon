@@ -158,3 +158,10 @@
 
 ### 20. Real Farm Assets — Videos (Future) ✅ (2026-03-20)
 - Video files preserved in tmp/el-rabon-export/: IMG_3815.mov, IMG_3884.mov, IMG_3969.mov, IMG_4083.mp4
+
+### 21. Contact Page — Real Address ✅ (2026-03-20)
+- Replaced placeholder address (Camino Rural s/n, Valle del Rabón, México) with real farm location
+- Real address: El Rabón, El Pino, Las Cuevecitas, 38540 Candelaria, Santa Cruz de Tenerife, Canarias, España
+- Address resolved via reverse geocoding from Google Maps coordinates (28.366179, -16.412216)
+- Address is now a clickable link that opens Google Maps at the correct location
+- Phone and email kept as-is (no real values provided yet)
