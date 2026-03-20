@@ -15,3 +15,9 @@
 - Tested: contact.ts API — user submits valid inquiry (success), missing/invalid fields (validation errors), malformed JSON (clear error)
 - Coverage: 76.97% → 89.56% stmts, 64.4% → 71.05% branch, 78.57% → 80% funcs
 - Remaining gaps: Lightbox keyboard nav (lines 39-42) + touch swipe (70-80), ContactForm error/validation branches (80-85, 176-178)
+
+## Iteration 4
+- Tested: Lightbox keyboard navigation — user presses ArrowRight/ArrowLeft to browse images, Escape to close
+- Coverage: 89.56% → 91% stmts, 71.05% → 73.17% branch, 80% → 86.66% funcs
+- Infra: added cleanup afterEach in vitest.setup.ts (happy-dom doesn't auto-cleanup, caused cross-test DOM leaks)
+- Remaining gaps: Lightbox touch swipe (70-80), ContactForm error/validation branches (80-85, 176-178), contact.ts line 30

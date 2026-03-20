@@ -45,4 +45,37 @@ describe("Lightbox", () => {
     await user.click(screen.getByLabelText("Close lightbox"));
     expect(screen.queryByAltText("Barn")).not.toBeInTheDocument();
   });
+
+  it("supports keyboard navigation: arrow keys to browse, Escape to close", async () => {
+    const user = userEvent.setup();
+
+    render(
+      <div>
+        <button data-lightbox-index="0">Open gallery</button>
+        <Lightbox images={images} />
+      </div>
+    );
+
+    // Open lightbox
+    await user.click(screen.getByText("Open gallery"));
+    expect(screen.getByAltText("Barn")).toBeInTheDocument();
+
+    // ArrowRight → next image
+    await user.keyboard("{ArrowRight}");
+    expect(screen.getByAltText("Field")).toBeInTheDocument();
+    expect(screen.getByText("2 / 3")).toBeInTheDocument();
+
+    // ArrowRight again → third image
+    await user.keyboard("{ArrowRight}");
+    expect(screen.getByAltText("Sunset")).toBeInTheDocument();
+    expect(screen.getByText("3 / 3")).toBeInTheDocument();
+
+    // ArrowLeft → back to second image
+    await user.keyboard("{ArrowLeft}");
+    expect(screen.getByAltText("Field")).toBeInTheDocument();
+
+    // Escape → closes lightbox
+    await user.keyboard("{Escape}");
+    expect(screen.queryByAltText("Field")).not.toBeInTheDocument();
+  });
 });
