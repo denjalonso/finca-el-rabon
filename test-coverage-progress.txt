@@ -26,3 +26,8 @@
 - Tested: ContactForm error state — user sees "Something went wrong" when server returns 500
 - Coverage: 91% → 92.44% stmts, 73.17% → 75.6% branch, 86.66% funcs (unchanged)
 - Remaining gaps: Lightbox touch swipe (70-80), ContactForm network error catch branch (84-85), validation branches (55-59, 66-68), contact.ts line 30
+
+## Iteration 6
+- Tested: ContactForm validation — user submits empty form, sees all 4 error messages, errors clear on input
+- Coverage: 92.44% → 94.6% stmts, 75.6% → 92.94% branch, 86.66% funcs (unchanged)
+- Remaining gaps: Lightbox touch swipe (70-80), ContactForm network error catch (84-85), invalid email validation (35-36), contact.ts line 30
