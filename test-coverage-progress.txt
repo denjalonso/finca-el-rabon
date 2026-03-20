@@ -5,3 +5,8 @@
 - Coverage: 0% → 49.28% stmts, 45.71% branch, 85.71% funcs
 - Infra: switched jsdom→happy-dom (jsdom 29 ESM compat issue), added vitest.setup.ts for jest-dom matchers, installed @testing-library/user-event
 - Remaining gaps: Lightbox (0%), contact.ts API (0%), ContactForm error/validation branches
+
+## Iteration 2
+- Tested: Lightbox — user clicks gallery thumbnail, sees full image, navigates next/prev, closes
+- Coverage: 49.28% → 76.97% stmts, 45.71% → 64.4% branch, 85.71% → 78.57% funcs
+- Remaining gaps: contact.ts API (0%), Lightbox keyboard nav + touch swipe, ContactForm error/validation branches
