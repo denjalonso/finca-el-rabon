@@ -214,5 +214,68 @@
       "Lighthouse SEO score >= 90"
     ],
     "passes": false
+  },
+  {
+    "category": "Real Farm Assets — Export",
+    "description": "Export real farm photos from macOS Photos library (album: 'El Rabon') to tmp/el-rabon-export/",
+    "steps_to_verify": [
+      "All photos from 'El Rabon' album in Photos.app are exported to tmp/el-rabon-export/",
+      "Exported images are JPEG format: IMG_3815, IMG_3884, IMG_3969, IMG_4076, IMG_4090, IMG_4117, IMG_4118, IMG_4119, IMG_4120"
+    ],
+    "passes": true
+  },
+  {
+    "category": "Real Farm Assets — Replace Placeholders",
+    "description": "Remove old placeholder images and copy real farm photos into src/assets/images/ with descriptive filenames",
+    "steps_to_verify": [
+      "Old placeholder images are removed from src/assets/images/",
+      "IMG_3969 (deck viewpoint, ocean) is copied as hero image",
+      "IMG_3815 (stone cottage) is copied as about section image",
+      "Remaining 7 photos (IMG_3884, IMG_4076, IMG_4090, IMG_4117, IMG_4118, IMG_4119, IMG_4120) are copied as gallery images",
+      "All filenames are descriptive and match their content"
+    ],
+    "passes": false
+  },
+  {
+    "category": "Real Farm Assets — Update Code References",
+    "description": "Update all image imports in Astro pages to reference the new real photo filenames",
+    "steps_to_verify": [
+      "All imports in src/pages/index.astro are updated (hero, about, 4 gallery previews)",
+      "All imports in src/pages/gallery.astro are updated (all gallery images)",
+      "Hero image, about image, gallery previews, and full gallery all render correctly with real photos",
+      "Lightbox displays real photos correctly at full resolution",
+      "Build completes without errors (pnpm run build)"
+    ],
+    "passes": false
+  },
+  {
+    "category": "Real Farm Assets — Videos (Future)",
+    "description": "Video files from the El Rabon album (3 .mov + 1 .mp4) are available in tmp/el-rabon-export/ for future use",
+    "steps_to_verify": [
+      "Video files preserved in tmp/el-rabon-export/: IMG_3815.mov, IMG_3884.mov, IMG_3969.mov, IMG_4083.mp4"
+    ],
+    "passes": true
+  },
+  {
+    "category": "Contact Page — Real Address",
+    "description": "Replace placeholder address with the real farm address from Google Maps (https://maps.app.goo.gl/u9VCo6Y6aEijXpWp6, coordinates: 28.366179, -16.412216) in the contact page info section",
+    "steps_to_verify": [
+      "Address in src/pages/contact.astro is updated from placeholder 'Camino Rural s/n, Valle del Rabón, México' to the real address resolved from the Google Maps link",
+      "Address text is clickable and opens Google Maps at the correct location",
+      "Phone number and email are updated if real values are available"
+    ],
+    "passes": false
+  },
+  {
+    "category": "Contact Page — Embedded Map",
+    "description": "Replace the 'Map coming soon' placeholder with an embedded Google Maps iframe showing the farm location",
+    "steps_to_verify": [
+      "The placeholder div in src/pages/contact.astro is replaced with a Google Maps embed iframe",
+      "Map is centered on the farm coordinates (28.366179, -16.412216)",
+      "Map iframe has aspect-[4/3] and rounded corners matching the existing placeholder style",
+      "Map is responsive and displays correctly on mobile and desktop",
+      "Map loads without errors and shows the correct pin location"
+    ],
+    "passes": false
   }
 ]
