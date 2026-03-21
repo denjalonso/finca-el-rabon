@@ -363,7 +363,7 @@
       "No layout shift caused by the reveal animations",
       "Animations respect prefers-reduced-motion"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Design — Atmospheric Backgrounds",

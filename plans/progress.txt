@@ -224,3 +224,14 @@
 - No noticeable impact on page load performance (GPU-accelerated filter)
 - Works in Chrome, Safari, and Firefox (standard SVG filter primitives)
 - Build completes without errors
+
+### 28. Design — Scroll Reveal Animations ✅ (2026-03-21)
+- Added @keyframes reveal-up (opacity 0→1, translateY 24px→0) to global.css
+- Defined .reveal (opacity: 0) and .reveal.visible (animation: reveal-up 0.7s ease-out forwards) classes
+- Added Intersection Observer script in BaseLayout.astro (threshold: 0.1, unobserves after triggering)
+- About section: heading + 3 paragraphs with staggered delays (0ms, 100ms, 200ms, 400ms)
+- Gallery preview: heading + 4 cards with staggered delays (100ms, 200ms, 300ms, 400ms)
+- CTA section: entire content block has reveal animation
+- Animations respect prefers-reduced-motion: reduce (opacity stays 1, animation: none)
+- No layout shift — elements start at opacity: 0 with translateY offset only
+- Build completes without errors

@@ -100,10 +100,10 @@ const previewImages = [
         />
 
         <div>
-          <h2 class="text-3xl md:text-4xl mb-6">{t("about.heading")}</h2>
-          <p class="text-charcoal/80 leading-relaxed mb-4">{t("about.p1")}</p>
-          <p class="text-charcoal/80 leading-relaxed mb-4">{t("about.p2")}</p>
-          <p class="text-charcoal/80 leading-relaxed">{t("about.p3")}</p>
+          <h2 class="reveal text-3xl md:text-4xl mb-6">{t("about.heading")}</h2>
+          <p class="reveal text-charcoal/80 leading-relaxed mb-4" style="animation-delay: 100ms;">{t("about.p1")}</p>
+          <p class="reveal text-charcoal/80 leading-relaxed mb-4" style="animation-delay: 200ms;">{t("about.p2")}</p>
+          <p class="reveal text-charcoal/80 leading-relaxed" style="animation-delay: 400ms;">{t("about.p3")}</p>
         </div>
       </div>
     </section>
@@ -111,11 +111,11 @@ const previewImages = [
     <!-- Gallery Preview -->
     <section class="px-6 py-16 md:px-12 md:py-32 lg:px-16 bg-warm-white">
       <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl md:text-4xl text-center mb-10 md:mb-16">{t("gallery.preview.heading")}</h2>
+        <h2 class="reveal text-3xl md:text-4xl text-center mb-10 md:mb-16">{t("gallery.preview.heading")}</h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-          {previewImages.map(({ src, alt }) => (
-            <div class="aspect-[4/3] rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
+          {previewImages.map(({ src, alt }, i) => (
+            <div class="reveal aspect-[4/3] rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer" style={`animation-delay: ${100 + i * 100}ms;`}>
               <Image
                 src={src}
                 alt={alt}
@@ -142,7 +142,7 @@ const previewImages = [
 
     <!-- CTA Section -->
     <section class="px-6 py-16 md:px-16 md:py-24 bg-sand">
-      <div class="max-w-3xl mx-auto text-center">
+      <div class="reveal max-w-3xl mx-auto text-center">
         <h2 class="text-2xl md:text-3xl mb-6">{t("cta.heading")}</h2>
         <p class="text-charcoal/70 leading-relaxed mb-8 md:mb-10">{t("cta.text")}</p>
         <a
