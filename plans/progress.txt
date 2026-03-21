@@ -203,3 +203,13 @@
 - Build completes without errors
 - Image sizes dramatically reduced: ~1.5-2MB source → ~40-300KB output (WebP at quality 70-75)
 - Visual quality remains acceptable at reduced settings
+
+### 26. Hero — Parallax Scroll Effect ✅ (2026-03-21)
+- Added parallax translateY effect to hero background image (factor 0.35 desktop, 0.15 touch)
+- Image scaled to 1.1 via scale-110 class to prevent edge gaps during parallax movement
+- Uses requestAnimationFrame for smooth 60fps performance
+- Scroll listener registered with { passive: true } for better scroll performance
+- Parallax disabled when prefers-reduced-motion: reduce is set
+- Touch device detection reduces parallax factor for subtler effect
+- Parent section overflow-hidden clips the scaled image correctly
+- Build completes without errors

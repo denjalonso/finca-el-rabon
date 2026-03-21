@@ -334,7 +334,7 @@
       "Parent section overflow-hidden clips the scaled image correctly",
       "Works on Chrome, Safari desktop, and iOS Safari"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Hero — Cel-Shaded Illustration Effect",
