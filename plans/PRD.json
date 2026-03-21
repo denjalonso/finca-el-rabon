@@ -295,5 +295,85 @@
       "Language switcher preserves the current page when switching languages"
     ],
     "passes": true
+  },
+  {
+    "category": "Contact Page — Real Contact Info",
+    "description": "Replace placeholder phone and email with real contact details: phone +34 664 253 660 and email denjalonso@gmail.com",
+    "steps_to_verify": [
+      "Phone in src/pages/[lang]/contact.astro displays +34 664 253 660",
+      "Phone href is tel:+34664253660",
+      "Email displays denjalonso@gmail.com",
+      "Email href is mailto:denjalonso@gmail.com",
+      "Both links are clickable and functional"
+    ],
+    "passes": true
+  },
+  {
+    "category": "Image Performance Optimization",
+    "description": "Switch from passthroughImageService to Sharp default service and add quality/format settings to all Image components for dramatically smaller file sizes",
+    "steps_to_verify": [
+      "astro.config.mjs no longer uses passthroughImageService() — uses Astro's default Sharp service",
+      "All Image components have quality setting (70-75)",
+      "All Image components have format='webp' for smaller output",
+      "pnpm build completes without errors",
+      "Generated images in dist/_astro/ are significantly smaller than source files (target: 200-400KB vs 1.5-2MB)",
+      "Visual quality remains acceptable at the reduced settings"
+    ],
+    "passes": true
+  },
+  {
+    "category": "Hero — Parallax Scroll Effect",
+    "description": "Add Apple-style parallax scrolling to the hero section where the background image moves at a different speed than content when scrolling",
+    "steps_to_verify": [
+      "Hero image has translateY parallax effect when scrolling (factor ~0.35)",
+      "Image is scaled to 1.1 to prevent edge gaps during parallax movement",
+      "Parallax uses requestAnimationFrame for smooth performance",
+      "Scroll listener is passive for better scroll performance",
+      "Parallax is disabled when prefers-reduced-motion: reduce is set",
+      "Parallax factor is reduced on touch devices for a subtler effect",
+      "Parent section overflow-hidden clips the scaled image correctly",
+      "Works on Chrome, Safari desktop, and iOS Safari"
+    ],
+    "passes": true
+  },
+  {
+    "category": "Hero — Cel-Shaded Illustration Effect",
+    "description": "Apply a cel-shading visual effect to the hero image using inline SVG filters (posterization + edge sharpening) to give it an illustrated/cartoon look. Interim CSS approach until a proper illustrated asset is provided.",
+    "steps_to_verify": [
+      "SVG filter with feComponentTransfer (discrete table values) creates color banding/posterization",
+      "feConvolveMatrix sharpens edges for an outlined look",
+      "Hero image visually resembles a cel-shaded illustration",
+      "Filter does not noticeably impact page load performance",
+      "Effect is hero-only — gallery and other images remain photographic",
+      "Filter works in Chrome, Safari, and Firefox"
+    ],
+    "passes": false
+  },
+  {
+    "category": "Design — Scroll Reveal Animations",
+    "description": "Add staggered scroll-reveal animations to home page sections using Intersection Observer, following Claude frontend aesthetics guide for orchestrated motion",
+    "steps_to_verify": [
+      "global.css has @keyframes reveal-up with opacity and translateY animation",
+      ".reveal / .reveal.visible utility classes are defined",
+      "BaseLayout.astro includes Intersection Observer script that adds .visible class on viewport entry",
+      "About section heading and paragraphs have staggered reveal (100-400ms delays)",
+      "Gallery preview heading and cards have staggered reveal",
+      "CTA section has reveal animation",
+      "Animations only fire once (observer.unobserve after triggering)",
+      "No layout shift caused by the reveal animations",
+      "Animations respect prefers-reduced-motion"
+    ],
+    "passes": false
+  },
+  {
+    "category": "Design — Atmospheric Backgrounds",
+    "description": "Replace flat background colors with subtle gradients for depth and visual interest, following Claude frontend aesthetics guide",
+    "steps_to_verify": [
+      "Gallery preview section uses a subtle radial gradient instead of flat bg-warm-white",
+      "CTA section has atmospheric gradient for visual depth",
+      "Gradients are subtle and complement the earth-tone palette",
+      "No jarring visual transitions between sections"
+    ],
+    "passes": false
   }
 ]

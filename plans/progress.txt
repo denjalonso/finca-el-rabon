@@ -188,3 +188,28 @@
 - Lightbox.tsx: refactored to accept ariaLabels prop (close, prev, next)
 - Test files updated to pass required translations/ariaLabels props using English locale
 - Build completes without errors; all 8 tests pass; TypeScript type check clean
+
+### 24. Contact Page — Real Contact Info ✅ (2026-03-21)
+- Updated phone number from placeholder (+52 123 456 7890) to real number +34 664 253 660
+- Phone href updated to tel:+34664253660
+- Email was already correct: denjalonso@gmail.com with mailto:denjalonso@gmail.com
+- Both links are clickable and functional
+- Build completes without errors
+
+### 25. Image Performance Optimization ✅ (2026-03-21)
+- Removed passthroughImageService() from astro.config.mjs, now using Astro's default Sharp service
+- Added format="webp" to all Image components (hero, about, gallery preview, gallery page)
+- Added quality={75} to about, gallery preview, and gallery page images (hero already had quality={70})
+- Build completes without errors
+- Image sizes dramatically reduced: ~1.5-2MB source → ~40-300KB output (WebP at quality 70-75)
+- Visual quality remains acceptable at reduced settings
+
+### 26. Hero — Parallax Scroll Effect ✅ (2026-03-21)
+- Added parallax translateY effect to hero background image (factor 0.35 desktop, 0.15 touch)
+- Image scaled to 1.1 via scale-110 class to prevent edge gaps during parallax movement
+- Uses requestAnimationFrame for smooth 60fps performance
+- Scroll listener registered with { passive: true } for better scroll performance
+- Parallax disabled when prefers-reduced-motion: reduce is set
+- Touch device detection reduces parallax factor for subtler effect
+- Parent section overflow-hidden clips the scaled image correctly
+- Build completes without errors
