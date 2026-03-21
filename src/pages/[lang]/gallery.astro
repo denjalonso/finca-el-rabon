@@ -59,6 +59,8 @@ const lightboxImages = images.map(({ src, alt }) => ({
                 widths={[320, 480, 640]}
                 sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                 loading={index < 3 ? "eager" : "lazy"}
+                quality={75}
+                format="webp"
               />
             </button>
           ))}
