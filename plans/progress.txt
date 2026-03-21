@@ -188,3 +188,10 @@
 - Lightbox.tsx: refactored to accept ariaLabels prop (close, prev, next)
 - Test files updated to pass required translations/ariaLabels props using English locale
 - Build completes without errors; all 8 tests pass; TypeScript type check clean
+
+### 24. Contact Page — Real Contact Info ✅ (2026-03-21)
+- Updated phone number from placeholder (+52 123 456 7890) to real number +34 664 253 660
+- Phone href updated to tel:+34664253660
+- Email was already correct: denjalonso@gmail.com with mailto:denjalonso@gmail.com
+- Both links are clickable and functional
+- Build completes without errors
