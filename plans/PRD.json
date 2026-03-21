@@ -374,6 +374,6 @@
       "Gradients are subtle and complement the earth-tone palette",
       "No jarring visual transitions between sections"
     ],
-    "passes": false
+    "passes": true
   }
 ]

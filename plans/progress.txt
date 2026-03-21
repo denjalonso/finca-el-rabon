@@ -235,3 +235,10 @@
 - Animations respect prefers-reduced-motion: reduce (opacity stays 1, animation: none)
 - No layout shift — elements start at opacity: 0 with translateY offset only
 - Build completes without errors
+
+### 29. Design — Atmospheric Backgrounds ✅ (2026-03-21)
+- Replaced flat bg-warm-white on Gallery Preview section with subtle radial gradient (sand → warm-white → cream)
+- Replaced flat bg-sand on CTA section with diagonal linear gradient (sand → warm-white → sand at 135deg)
+- Gradients use existing CSS custom properties (--color-sand, --color-warm-white, --color-cream) for consistency
+- Subtle transitions between sections — no jarring color boundaries
+- Build completes without errors
