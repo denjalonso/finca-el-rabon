@@ -195,3 +195,11 @@
 - Email was already correct: denjalonso@gmail.com with mailto:denjalonso@gmail.com
 - Both links are clickable and functional
 - Build completes without errors
+
+### 25. Image Performance Optimization ✅ (2026-03-21)
+- Removed passthroughImageService() from astro.config.mjs, now using Astro's default Sharp service
+- Added format="webp" to all Image components (hero, about, gallery preview, gallery page)
+- Added quality={75} to about, gallery preview, and gallery page images (hero already had quality={70})
+- Build completes without errors
+- Image sizes dramatically reduced: ~1.5-2MB source → ~40-300KB output (WebP at quality 70-75)
+- Visual quality remains acceptable at reduced settings

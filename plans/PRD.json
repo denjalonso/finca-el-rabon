@@ -319,7 +319,7 @@
       "Generated images in dist/_astro/ are significantly smaller than source files (target: 200-400KB vs 1.5-2MB)",
       "Visual quality remains acceptable at the reduced settings"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Hero — Parallax Scroll Effect",
