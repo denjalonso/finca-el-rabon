@@ -28,11 +28,32 @@ const previewImages = [
   <main>
     <!-- Hero Section -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
+      <!-- Cel-shading SVG filter: posterization + edge sharpening -->
+      <svg class="absolute w-0 h-0" aria-hidden="true">
+        <defs>
+          <filter id="cel-shade" color-interpolation-filters="sRGB">
+            <!-- Posterize: reduce color levels for flat cel-shaded look -->
+            <feComponentTransfer>
+              <feFuncR type="discrete" tableValues="0 0.15 0.3 0.45 0.6 0.75 0.9 1" />
+              <feFuncG type="discrete" tableValues="0 0.15 0.3 0.45 0.6 0.75 0.9 1" />
+              <feFuncB type="discrete" tableValues="0 0.15 0.3 0.45 0.6 0.75 0.9 1" />
+            </feComponentTransfer>
+            <!-- Sharpen edges for outlined look -->
+            <feConvolveMatrix
+              order="3"
+              kernelMatrix="0 -0.5 0 -0.5 3 -0.5 0 -0.5 0"
+              preserveAlpha="true"
+            />
+          </filter>
+        </defs>
+      </svg>
+
       <Image
         src={heroImage}
         alt="El Rabón Farm landscape"
         class="absolute inset-0 w-full h-full object-cover scale-110"
         id="hero-parallax-img"
+        style="filter: url(#cel-shade);"
         widths={[640, 1024, 1440, 2400]}
         sizes="100vw"
         loading="eager"

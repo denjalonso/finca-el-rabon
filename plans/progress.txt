@@ -213,3 +213,14 @@
 - Touch device detection reduces parallax factor for subtler effect
 - Parent section overflow-hidden clips the scaled image correctly
 - Build completes without errors
+
+### 27. Hero — Cel-Shaded Illustration Effect ✅ (2026-03-21)
+- Added inline SVG filter with id="cel-shade" to hero section
+- feComponentTransfer with discrete table values (8 levels) creates color banding/posterization
+- feConvolveMatrix (3x3 sharpening kernel) enhances edges for an outlined look
+- Filter applied via style="filter: url(#cel-shade)" on the hero Image component
+- Effect is hero-only — gallery and other images remain photographic
+- SVG filter is hidden (w-0 h-0) with aria-hidden="true" for accessibility
+- No noticeable impact on page load performance (GPU-accelerated filter)
+- Works in Chrome, Safari, and Firefox (standard SVG filter primitives)
+- Build completes without errors

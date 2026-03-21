@@ -347,7 +347,7 @@
       "Effect is hero-only — gallery and other images remain photographic",
       "Filter works in Chrome, Safari, and Firefox"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Design — Scroll Reveal Animations",
