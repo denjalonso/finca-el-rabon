@@ -28,11 +28,32 @@ const previewImages = [
   <main>
     <!-- Hero Section -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
+      <!-- Cel-shading SVG filter: posterization + edge sharpening -->
+      <svg class="absolute w-0 h-0" aria-hidden="true">
+        <defs>
+          <filter id="cel-shade" color-interpolation-filters="sRGB">
+            <!-- Posterize: reduce color levels for flat cel-shaded look -->
+            <feComponentTransfer>
+              <feFuncR type="discrete" tableValues="0 0.15 0.3 0.45 0.6 0.75 0.9 1" />
+              <feFuncG type="discrete" tableValues="0 0.15 0.3 0.45 0.6 0.75 0.9 1" />
+              <feFuncB type="discrete" tableValues="0 0.15 0.3 0.45 0.6 0.75 0.9 1" />
+            </feComponentTransfer>
+            <!-- Sharpen edges for outlined look -->
+            <feConvolveMatrix
+              order="3"
+              kernelMatrix="0 -0.5 0 -0.5 3 -0.5 0 -0.5 0"
+              preserveAlpha="true"
+            />
+          </filter>
+        </defs>
+      </svg>
+
       <Image
         src={heroImage}
         alt="El Rabón Farm landscape"
         class="absolute inset-0 w-full h-full object-cover scale-110"
         id="hero-parallax-img"
+        style="filter: url(#cel-shade);"
         widths={[640, 1024, 1440, 2400]}
         sizes="100vw"
         loading="eager"
@@ -79,22 +100,22 @@ const previewImages = [
         />
 
         <div>
-          <h2 class="text-3xl md:text-4xl mb-6">{t("about.heading")}</h2>
-          <p class="text-charcoal/80 leading-relaxed mb-4">{t("about.p1")}</p>
-          <p class="text-charcoal/80 leading-relaxed mb-4">{t("about.p2")}</p>
-          <p class="text-charcoal/80 leading-relaxed">{t("about.p3")}</p>
+          <h2 class="reveal text-3xl md:text-4xl mb-6">{t("about.heading")}</h2>
+          <p class="reveal text-charcoal/80 leading-relaxed mb-4" style="animation-delay: 100ms;">{t("about.p1")}</p>
+          <p class="reveal text-charcoal/80 leading-relaxed mb-4" style="animation-delay: 200ms;">{t("about.p2")}</p>
+          <p class="reveal text-charcoal/80 leading-relaxed" style="animation-delay: 400ms;">{t("about.p3")}</p>
         </div>
       </div>
     </section>
 
     <!-- Gallery Preview -->
-    <section class="px-6 py-16 md:px-12 md:py-32 lg:px-16 bg-warm-white">
+    <section class="px-6 py-16 md:px-12 md:py-32 lg:px-16" style="background: radial-gradient(ellipse at 30% 0%, var(--color-sand) 0%, var(--color-warm-white) 50%, var(--color-cream) 100%)">
       <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl md:text-4xl text-center mb-10 md:mb-16">{t("gallery.preview.heading")}</h2>
+        <h2 class="reveal text-3xl md:text-4xl text-center mb-10 md:mb-16">{t("gallery.preview.heading")}</h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-          {previewImages.map(({ src, alt }) => (
-            <div class="aspect-[4/3] rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
+          {previewImages.map(({ src, alt }, i) => (
+            <div class="reveal aspect-[4/3] rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer" style={`animation-delay: ${100 + i * 100}ms;`}>
               <Image
                 src={src}
                 alt={alt}
@@ -120,8 +141,8 @@ const previewImages = [
     </section>
 
     <!-- CTA Section -->
-    <section class="px-6 py-16 md:px-16 md:py-24 bg-sand">
-      <div class="max-w-3xl mx-auto text-center">
+    <section class="px-6 py-16 md:px-16 md:py-24" style="background: linear-gradient(135deg, var(--color-sand) 0%, var(--color-warm-white) 40%, var(--color-sand) 100%)">
+      <div class="reveal max-w-3xl mx-auto text-center">
         <h2 class="text-2xl md:text-3xl mb-6">{t("cta.heading")}</h2>
         <p class="text-charcoal/70 leading-relaxed mb-8 md:mb-10">{t("cta.text")}</p>
         <a

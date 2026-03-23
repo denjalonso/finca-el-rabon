@@ -213,3 +213,32 @@
 - Touch device detection reduces parallax factor for subtler effect
 - Parent section overflow-hidden clips the scaled image correctly
 - Build completes without errors
+
+### 27. Hero — Cel-Shaded Illustration Effect ✅ (2026-03-21)
+- Added inline SVG filter with id="cel-shade" to hero section
+- feComponentTransfer with discrete table values (8 levels) creates color banding/posterization
+- feConvolveMatrix (3x3 sharpening kernel) enhances edges for an outlined look
+- Filter applied via style="filter: url(#cel-shade)" on the hero Image component
+- Effect is hero-only — gallery and other images remain photographic
+- SVG filter is hidden (w-0 h-0) with aria-hidden="true" for accessibility
+- No noticeable impact on page load performance (GPU-accelerated filter)
+- Works in Chrome, Safari, and Firefox (standard SVG filter primitives)
+- Build completes without errors
+
+### 28. Design — Scroll Reveal Animations ✅ (2026-03-21)
+- Added @keyframes reveal-up (opacity 0→1, translateY 24px→0) to global.css
+- Defined .reveal (opacity: 0) and .reveal.visible (animation: reveal-up 0.7s ease-out forwards) classes
+- Added Intersection Observer script in BaseLayout.astro (threshold: 0.1, unobserves after triggering)
+- About section: heading + 3 paragraphs with staggered delays (0ms, 100ms, 200ms, 400ms)
+- Gallery preview: heading + 4 cards with staggered delays (100ms, 200ms, 300ms, 400ms)
+- CTA section: entire content block has reveal animation
+- Animations respect prefers-reduced-motion: reduce (opacity stays 1, animation: none)
+- No layout shift — elements start at opacity: 0 with translateY offset only
+- Build completes without errors
+
+### 29. Design — Atmospheric Backgrounds ✅ (2026-03-21)
+- Replaced flat bg-warm-white on Gallery Preview section with subtle radial gradient (sand → warm-white → cream)
+- Replaced flat bg-sand on CTA section with diagonal linear gradient (sand → warm-white → sand at 135deg)
+- Gradients use existing CSS custom properties (--color-sand, --color-warm-white, --color-cream) for consistency
+- Subtle transitions between sections — no jarring color boundaries
+- Build completes without errors

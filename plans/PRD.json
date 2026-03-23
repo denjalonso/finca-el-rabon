@@ -347,7 +347,7 @@
       "Effect is hero-only — gallery and other images remain photographic",
       "Filter works in Chrome, Safari, and Firefox"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Design — Scroll Reveal Animations",
@@ -363,7 +363,7 @@
       "No layout shift caused by the reveal animations",
       "Animations respect prefers-reduced-motion"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "Design — Atmospheric Backgrounds",
@@ -374,6 +374,6 @@
       "Gradients are subtle and complement the earth-tone palette",
       "No jarring visual transitions between sections"
     ],
-    "passes": false
+    "passes": true
   }
 ]
